@@ -1,0 +1,113 @@
+08-01-2023 11:36:17 : DEBUG : main : <module> : 288 : Tim thay mo :1277, 234
+08-01-2023 11:38:32 : DEBUG : main : find_and_take : 148 : Tim thay mo :1276, 229
+08-01-2023 11:38:33 : DEBUG : main : find_and_take : 163 : Tim lan 2 thay mo :1276, 229
+08-01-2023 11:38:39 : DEBUG : main : find_and_take : 191 : Không thấy start button, hoặc lỗi chụp
+08-01-2023 11:42:23 : DEBUG : main : find_and_take : 148 : Tim thay mo :1276, 229
+08-01-2023 11:42:24 : DEBUG : main : find_and_take : 163 : Tim lan 2 thay mo :1276, 229
+08-01-2023 11:42:25 : DEBUG : main : find_and_take : 185 : Tìm thấy nút star:193,231
+08-01-2023 11:42:25 : DEBUG : main : find_and_take : 248 : press Share
+08-01-2023 11:42:28 : DEBUG : main : find_and_take : 259 : press Alliance
+08-01-2023 11:42:29 : DEBUG : main : find_and_take : 269 : press Share button
+08-01-2023 11:42:30 : DEBUG : main : find_and_take : 275 : press Back
+08-01-2023 11:48:18 : DEBUG : main : find_and_take : 148 : Tim thay mo :1276, 229
+08-01-2023 11:48:19 : DEBUG : main : find_and_take : 163 : Tim lan 2 thay mo :1276, 229
+08-01-2023 11:48:20 : DEBUG : main : find_and_take : 185 : Tìm thấy nút star:230,231
+08-01-2023 11:49:24 : DEBUG : main : find_and_take : 148 : Tim thay mo :1276, 229
+08-01-2023 11:49:26 : DEBUG : main : find_and_take : 163 : Tim lan 2 thay mo :1276, 229
+08-01-2023 11:49:27 : DEBUG : main : find_and_take : 185 : Tìm thấy nút star:193,231
+08-01-2023 11:50:51 : DEBUG : main : find_and_take : 148 : Tim thay mo :1276, 229
+08-01-2023 11:50:52 : DEBUG : main : find_and_take : 163 : Tim lan 2 thay mo :1276, 229
+08-01-2023 11:50:53 : DEBUG : main : find_and_take : 185 : Tìm thấy nút star:230,231
+08-01-2023 11:53:16 : DEBUG : main : find_and_take : 148 : Tim thay mo :1276, 229
+08-01-2023 11:53:17 : DEBUG : main : find_and_take : 163 : Tim lan 2 thay mo :1276, 229
+08-01-2023 11:53:18 : DEBUG : main : find_and_take : 185 : Tìm thấy nút star:193,231
+08-01-2023 11:53:23 : DEBUG : main : find_and_take : 252 : press Share
+08-01-2023 11:53:25 : DEBUG : main : find_and_take : 263 : press Alliance
+08-01-2023 11:53:25 : DEBUG : main : find_and_take : 273 : press Share button
+08-01-2023 11:53:26 : DEBUG : main : find_and_take : 279 : press Back
+08-01-2023 11:54:44 : DEBUG : main : find_and_take : 148 : Tim thay mo :1276, 229
+08-01-2023 11:54:45 : DEBUG : main : find_and_take : 163 : Tim lan 2 thay mo :1276, 229
+08-01-2023 11:54:46 : DEBUG : main : find_and_take : 185 : Tìm thấy nút star:231,231
+08-01-2023 11:54:57 : DEBUG : main : find_and_take : 252 : press Share
+08-01-2023 11:54:58 : DEBUG : main : find_and_take : 263 : press Alliance
+08-01-2023 11:54:59 : DEBUG : main : find_and_take : 273 : press Share button
+08-01-2023 11:54:59 : DEBUG : main : find_and_take : 279 : press Back
+08-01-2023 11:55:46 : DEBUG : main : find_and_take : 148 : Tim thay mo :1276, 229
+08-01-2023 11:55:47 : DEBUG : main : find_and_take : 163 : Tim lan 2 thay mo :1276, 229
+08-01-2023 11:55:48 : DEBUG : main : find_and_take : 185 : Tìm thấy nút star:193,231
+08-01-2023 11:55:54 : DEBUG : main : find_and_take : 252 : press Share
+08-01-2023 11:55:55 : DEBUG : main : find_and_take : 263 : press Alliance
+08-01-2023 11:55:56 : DEBUG : main : find_and_take : 273 : press Share button
+08-01-2023 11:55:56 : DEBUG : main : find_and_take : 279 : press Back
+08-01-2023 11:56:18 : DEBUG : main : find_and_take : 148 : Tim thay mo :1276, 229
+08-01-2023 11:56:19 : DEBUG : main : find_and_take : 163 : Tim lan 2 thay mo :1276, 229
+08-01-2023 11:56:20 : DEBUG : main : find_and_take : 185 : Tìm thấy nút star:193,231
+08-01-2023 11:56:25 : DEBUG : main : find_and_take : 252 : press Share
+08-01-2023 11:56:27 : DEBUG : main : find_and_take : 263 : press Alliance
+08-01-2023 11:56:27 : DEBUG : main : find_and_take : 281 : Không thể share
+08-01-2023 11:57:04 : DEBUG : main : find_and_take : 148 : Tim thay mo :1276, 229
+08-01-2023 11:57:05 : DEBUG : main : find_and_take : 163 : Tim lan 2 thay mo :1276, 229
+08-01-2023 11:57:06 : DEBUG : main : find_and_take : 185 : Tìm thấy nút star:232,231
+08-01-2023 11:57:11 : DEBUG : main : find_and_take : 252 : press Share
+08-01-2023 11:57:12 : DEBUG : main : find_and_take : 281 : Không thể share
+08-01-2023 11:57:39 : DEBUG : main : find_and_take : 148 : Tim thay mo :1276, 229
+08-01-2023 11:57:40 : DEBUG : main : find_and_take : 163 : Tim lan 2 thay mo :1276, 229
+08-01-2023 11:57:42 : DEBUG : main : find_and_take : 185 : Tìm thấy nút star:477,231
+08-01-2023 11:57:44 : DEBUG : main : find_and_take : 252 : press Share
+08-01-2023 11:57:50 : DEBUG : main : find_and_take : 148 : Tim thay mo :1276, 229
+08-01-2023 11:57:51 : DEBUG : main : find_and_take : 163 : Tim lan 2 thay mo :1276, 229
+08-01-2023 11:57:52 : DEBUG : main : find_and_take : 185 : Tìm thấy nút star:193,231
+08-01-2023 11:57:57 : DEBUG : main : find_and_take : 252 : press Share
+08-01-2023 11:57:58 : DEBUG : main : find_and_take : 281 : Không thể share
+08-01-2023 11:58:30 : DEBUG : main : find_and_take : 148 : Tim thay mo :1276, 229
+08-01-2023 11:58:31 : DEBUG : main : find_and_take : 163 : Tim lan 2 thay mo :1276, 229
+08-01-2023 11:58:32 : DEBUG : main : find_and_take : 185 : Tìm thấy nút star:232,231
+08-01-2023 11:58:56 : DEBUG : main : find_and_take : 148 : Tim thay mo :1276, 229
+08-01-2023 11:58:58 : DEBUG : main : find_and_take : 163 : Tim lan 2 thay mo :1276, 229
+08-01-2023 11:58:59 : DEBUG : main : find_and_take : 185 : Tìm thấy nút star:230,231
+08-01-2023 11:59:47 : DEBUG : main : find_and_take : 148 : Tim thay mo :1276, 229
+08-01-2023 11:59:48 : DEBUG : main : find_and_take : 163 : Tim lan 2 thay mo :1276, 229
+08-01-2023 11:59:49 : DEBUG : main : find_and_take : 185 : Tìm thấy nút star:193,231
+08-01-2023 11:59:54 : DEBUG : main : find_and_take : 252 : press Share
+08-01-2023 11:59:56 : DEBUG : main : find_and_take : 263 : press Alliance
+08-01-2023 11:59:57 : DEBUG : main : find_and_take : 273 : press Share button
+08-01-2023 11:59:57 : DEBUG : main : find_and_take : 279 : press Back
+09-01-2023 12:00:31 : DEBUG : main : find_and_take : 148 : Tim thay mo :1276, 229
+09-01-2023 12:00:32 : DEBUG : main : find_and_take : 163 : Tim lan 2 thay mo :1276, 229
+09-01-2023 12:00:33 : DEBUG : main : find_and_take : 185 : Tìm thấy nút star:193,231
+09-01-2023 12:00:35 : DEBUG : main : find_and_take : 252 : press Share
+09-01-2023 12:00:37 : DEBUG : main : find_and_take : 281 : Không thể share
+09-01-2023 12:01:00 : DEBUG : main : find_and_take : 148 : Tim thay mo :1276, 229
+09-01-2023 12:01:01 : DEBUG : main : find_and_take : 163 : Tim lan 2 thay mo :1276, 229
+09-01-2023 12:01:02 : DEBUG : main : find_and_take : 185 : Tìm thấy nút star:231,231
+09-01-2023 12:01:08 : DEBUG : main : find_and_take : 252 : press Share
+09-01-2023 12:01:09 : DEBUG : main : find_and_take : 281 : Không thể share
+09-01-2023 12:01:27 : DEBUG : main : find_and_take : 148 : Tim thay mo :1276, 229
+09-01-2023 12:01:28 : DEBUG : main : find_and_take : 163 : Tim lan 2 thay mo :1276, 229
+09-01-2023 12:01:29 : DEBUG : main : find_and_take : 185 : Tìm thấy nút star:231,231
+09-01-2023 12:01:50 : DEBUG : main : find_and_take : 148 : Tim thay mo :1276, 229
+09-01-2023 12:01:51 : DEBUG : main : find_and_take : 163 : Tim lan 2 thay mo :1276, 229
+09-01-2023 12:01:52 : DEBUG : main : find_and_take : 185 : Tìm thấy nút star:231,231
+09-01-2023 12:02:11 : DEBUG : main : find_and_take : 148 : Tim thay mo :1276, 229
+09-01-2023 12:02:13 : DEBUG : main : find_and_take : 163 : Tim lan 2 thay mo :1276, 229
+09-01-2023 12:02:14 : DEBUG : main : find_and_take : 185 : Tìm thấy nút star:231,231
+09-01-2023 12:02:47 : DEBUG : main : find_and_take : 148 : Tim thay mo :1276, 229
+09-01-2023 12:02:48 : DEBUG : main : find_and_take : 163 : Tim lan 2 thay mo :1276, 229
+09-01-2023 12:02:49 : DEBUG : main : find_and_take : 185 : Tìm thấy nút star:193,231
+09-01-2023 12:02:52 : DEBUG : main : find_and_take : 252 : press Share
+09-01-2023 12:02:53 : DEBUG : main : find_and_take : 281 : Không thể share
+09-01-2023 12:03:16 : DEBUG : main : find_and_take : 148 : Tim thay mo :1276, 229
+09-01-2023 12:03:17 : DEBUG : main : find_and_take : 163 : Tim lan 2 thay mo :1276, 229
+09-01-2023 12:03:18 : DEBUG : main : find_and_take : 185 : Tìm thấy nút star:230,231
+09-01-2023 12:03:22 : DEBUG : main : find_and_take : 252 : press Share
+09-01-2023 12:03:54 : DEBUG : main : find_and_take : 148 : Tim thay mo :1276, 229
+09-01-2023 12:03:55 : DEBUG : main : find_and_take : 163 : Tim lan 2 thay mo :1276, 229
+09-01-2023 12:03:56 : DEBUG : main : find_and_take : 185 : Tìm thấy nút star:231,231
+09-01-2023 12:04:19 : DEBUG : main : find_and_take : 148 : Tim thay mo :1276, 229
+09-01-2023 12:04:20 : DEBUG : main : find_and_take : 163 : Tim lan 2 thay mo :1276, 229
+09-01-2023 12:04:21 : DEBUG : main : find_and_take : 185 : Tìm thấy nút star:193,231
+09-01-2023 12:05:15 : DEBUG : main : find_and_take : 148 : Tim thay mo :1276, 229
+09-01-2023 12:05:16 : DEBUG : main : find_and_take : 163 : Tim lan 2 thay mo :1276, 229
+09-01-2023 12:05:17 : DEBUG : main : find_and_take : 185 : Tìm thấy nút star:193,231
+09-01-2023 12:05:21 : DEBUG : main : find_and_take : 252 : press Share
+09-01-2023 12:05:22 : DEBUG : main : find_and_take : 281 : Không thể share
