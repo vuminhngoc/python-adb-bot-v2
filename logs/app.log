@@ -14057,3 +14057,6 @@
 10-01-2023 03:50:24 : DEBUG : auto-tour : <module> : 390 : 2023-01-10 08:11:13.728096
 10-01-2023 03:50:24 : DEBUG : auto-tour : <module> : 430 : lv=3
 10-01-2023 03:50:24 : DEBUG : auto-tour : <module> : 448 : Target 1 / 4 : (359, 1380, 4, 5)
+10-01-2023 03:50:26 : DEBUG : auto-tour : move_ziczac : 203 : Yellow star: 681,431
+10-01-2023 03:50:27 : DEBUG : auto-tour : move_ziczac : 214 : small earth: 840, 432
+10-01-2023 03:50:30 : DEBUG : auto-tour : move_ziczac : 224 : Go button: 938, 273
