@@ -185,175 +185,14 @@ def find_and_take(limit_x, limit_y):
     if _x < 0:
         return False
 
-    # thử lại lần 2 do bị trượt
-    try:
-        imgx = device.screencap()
-        screenshot_image = cv2.imdecode(np.frombuffer(imgx, np.uint8), -1)
-
-        _x, _y = locateCenterOnScreen("imgs/crystal_mine.png", screenshot_image, grayscale=True, confidence=0.7)
-        logging.debug(f"Tim lan 2 thay mo :{_x}, {_y}")
-    except:
-        # ignored
-        return False
-
-    if _x < 0:
-        return False
-
-    if _x < limit_x and _y > limit_y:
-        return False
-
-    # Click
-    device.input_tap(_x, _y)
-
-    star_x = -1
-    star_y = -1
-    for i in range(10):
-        sleep(0.35)
-        try:
-            imgx = device.screencap()
-            screenshot_image = cv2.imdecode(np.frombuffer(imgx, np.uint8), -1)
-            star_x, star_y = locateCenterOnScreen("imgs/star.png", screenshot_image, grayscale=True, confidence=0.75)
-            logging.debug(f'Tìm thấy nút star:{star_x},{star_y}')
-            break
-        except:
-            pass
-
-    if star_x < 0:
-        logging.debug("Không thấy start button, hoặc lỗi chụp")
-        return False
-
-    global traveled_mines
-    global share_lv
-    mine_level = 100
-    try:
-        try:
-            last_mine = screenshot_image[star_y - 10:star_y + 5, star_x + 15:star_x + 100]
-            last_lvl = screenshot_image[star_y - 45:star_y - 20, star_x - 25:star_x + 150]
-            image = cv2.resize(last_mine, None, fx=3, fy=3, interpolation=cv2.INTER_CUBIC)
-            gray = get_grayscale(image)
-            thresh = thresholding(gray)
-
-            str_coo = pytesseract.image_to_string(thresh,
-                                                  config='-c tessedit_char_whitelist=:0123456789XY --psm 11 --oem 0')
-            str_coo = re.sub(r"\s\s+", " ", str_coo.strip())
-            str_coo = str_coo.upper()
-            str_arr: list[str] = str_coo.split('Y')
-            str_arr = list(map(lambda x: re.sub(r'[^0-9]', '', x), str_arr))
-            print(str_coo)
-            str_coo = str_arr[0] + ':' + str_arr[1]
-
-            if str_coo in traveled_mines:
-                tmp_cap = device.screencap()
-                tmp_screenshot = cv2.imdecode(np.frombuffer(tmp_cap, np.uint8), -1)
-                _x, _y = locateCenterOnScreen("imgs/back.png", tmp_screenshot, grayscale=True, confidence=0.85)
-                device.input_tap(_x, _y)
-                logging.debug('press Back')
-                return
-            traveled_mines.append(str_coo)
-
-            image = cv2.resize(last_lvl, None, fx=3, fy=3, interpolation=cv2.INTER_CUBIC)
-            gray = get_grayscale(image)
-            thresh = thresholding(gray)
-            str_level = pytesseract.image_to_string(thresh, config='--psm 11 --oem 0')
-            str_level = re.sub(r'[^0-9]', '', str_level)
-            mine_level = int(str_level)
-
-            if mine_level > share_lv:
-                last_mine_screenshot = screenshot_image[star_y - 55:star_y + 400, star_x - 60:star_x + 180]
-                thread = Thread(target=send_telebot,
-                                args=(1706064050, str_coo + ":lv= " + str_level, last_mine_screenshot))
-                thread.start()
-        except Exception as e:
-            print(e)
-
-        if is_full_queue or share_status or mine_level <= share_lv:
-            _x, _y = locateCenterOnScreen("imgs/share.png", screenshot_image, grayscale=True, confidence=0.85)
-            device.input_tap(_x, _y)
-            logging.debug('press Share')
-
-            for i in range(10):
-                sleep(0.5)
-                try:
-                    imgx = device.screencap()
-                    screenshot_image = cv2.imdecode(np.frombuffer(imgx, np.uint8), -1)
-
-                    _x, _y = locateCenterOnScreen("imgs/alliance.png", screenshot_image, grayscale=True,
-                                                  confidence=0.85)
-                    device.input_tap(_x, _y)
-                    logging.debug('press Alliance')
-                    break
-                except:
-                    None
-
-            sleep(0.2)
-            imgx = device.screencap()
-            screenshot_image = cv2.imdecode(np.frombuffer(imgx, np.uint8), -1)
-            _x, _y = locateCenterOnScreen("imgs/share_button.png", screenshot_image, grayscale=True, confidence=0.85)
-            device.input_tap(_x, _y)
-            logging.debug('press Share button')
-
-        imgx = device.screencap()
-        screenshot_image = cv2.imdecode(np.frombuffer(imgx, np.uint8), -1)
-        _x, _y = locateCenterOnScreen("imgs/back.png", screenshot_image, grayscale=True, confidence=0.85)
-        device.input_tap(_x, _y)
-        logging.debug('press Back')
-        sleep(0.2)
-    except:
-        logging.debug("Không thể share")
-
-    return True
+    thread = Thread(target=send_telebot,
+                    args=(1706064050, "C36 screenshot", screenshot_image))
+    thread.start()
 
 
 def move_ziczac(x, y, w=4, h=10, find_lv=0):
-    device.input_keyevent(4)
-    # reset lastmine
-    global last_mine
-    last_mine = None
-    # Kiểm tra xem có bị click nhầm không
-    try:
-        imgx = device.screencap()
-        screenshot_image = cv2.imdecode(np.frombuffer(imgx, np.uint8), -1)
-
-        x, y = locateCenterOnScreen("imgs/back.png", screenshot_image, grayscale=True, confidence=0.85)
-        device.input_tap(x, y)
-        return False
-    except:
-        # ignored
-        pass
-
-    try:
-        imgx = device.screencap()
-        screenshot_image = cv2.imdecode(np.frombuffer(imgx, np.uint8), -1)
-
-        x, y = locateCenterOnScreen("imgs/field.png", screenshot_image, grayscale=True, confidence=0.85)
-        device.input_tap(x, y)
-
-        for index in range(10):
-            sleep(0.35)
-            try:
-                imgx = device.screencap()
-                screenshot_image = cv2.imdecode(np.frombuffer(imgx, np.uint8), -1)
-
-                x, y = locateCenterOnScreen("imgs/star_yellow.PNG", screenshot_image, grayscale=True, confidence=0.75)
-                break
-            except:
-                pass
-    except:
-        # ignored
-        pass
-
     go_x = -1
     go_y = -1
-
-    try:
-        imgx = device.screencap()
-        screenshot_image = cv2.imdecode(np.frombuffer(imgx, np.uint8), -1)
-
-        go_x, go_y = locateCenterOnScreen("imgs/go.PNG", screenshot_image, grayscale=True, confidence=0.85)
-        logging.debug(f"Go button: {go_x},{go_y}")
-    except:
-        logging.debug("Khong thay Go button")
-
     star_x = -1
     star_y = -1
     try:
@@ -505,60 +344,44 @@ if __name__ == '__main__':
             except:
                 logging.debug("Khong thay Kingdom")
 
-    l0_targets = [(974, 1025, 4, 9), (845, 1090, 4, 9)]
-    l1_targets = [(870, 1373, 3, 6),
-                  (871, 1633, 3, 6),
-                  (1120, 1384, 3, 6),
-                  (1120, 1637, 3, 6),
-                  (673, 1031, 2, 2),
-                  (987, 1812, 5, 2),
-                  (1119, 1121, 3, 6)]
+    l0_targets = [(1008, 1129, 2, 40)]  # dọc phía trên congress
+    l1_targets = [(1128, 1359, 4, 10),  # B3
+                  (871, 1373, 4, 10),  # B2
+                  (1381, 1118, 3, 8),  # B6
+                  (1395, 1624, 3, 8),  # C5
+                  (979, 1246, 12, 16),  # Vùng rộng phía trên A2
+                  (826, 1242, 10, 28)]  # Vùng rộng phía trên A1
+
     l2_targets = [
-        (1330, 1245, 2, 2),
-        (970, 1120, 5, 46),
-        (743, 1035, 2, 30),
-        (614, 1123, 3, 6),
-        (614, 1378, 3, 6),
-        (614, 1628, 3, 6),
-        (1377, 1123, 3, 6),
-        (1377, 1378, 3, 6),
-        (1377, 1628, 3, 6),
-        (1630, 1123, 3, 6),
-        (1630, 1378, 3, 6),
-        (1630, 1628, 3, 6),
-        (358, 1123, 3, 6),
-        (358, 1378, 3, 6),
-        (358, 1628, 3, 6),
+        (836, 1032, 1, 35),  # vùng dọc giữa B và A
+        (466, 1041, 1, 50),  # vùng dọc giữa C và B
+        (1250, 1025, 1, 20),  # vùng dọc bên cạnh shrine A2
+        (220, 1031, 1, 40),  # vùng dọc bên ngoài trái C
+        (713, 1817, 8, 0),  # vùng ngang trên cùng bản đồ
+        (1634, 1118, 3, 6),  # C10
+        (1639, 1378, 3, 6),  # C8
+        (1386, 1380, 3, 6),  # B4
+        (1335, 1240, 2, 2),  # vùng nhỏ bên cạnh B4 dưới
+        (1614, 1382, 4, 4),  # vùng nhỏ bên cạnh B4 trên
+        (1345, 1037, 9, 2),  # vùng ngang bản đồ bên phải
+        (595, 1027, 6, 1),  # vùng ngang bản đồ bên trái
+        (1827, 1032, 5, 16),  # vuùng góc phải bản đồ
     ]
+
     l3_targets = [
-        (1245, 1334, 2, 5),
-        (968, 1174, 1, 40),
-        (1046, 1374, 1, 30),
-        (704, 1024, 2, 40),
-        (562, 1024, 1, 40),
-        (481, 1024, 1, 50),
-        (233, 1024, 1, 70),
-        (1251, 1024, 1, 40),
-        (1824, 1024, 6, 5),
-        (1064, 1444, 6, 6),
-        (213, 1035, 40, 3),
-        (306, 1115, 1, 45),
-        (989, 1236, 10, 15),
-        (766, 1348, 10, 15),
-        (238, 1727, 30, 10),
-        (402, 1562, 35, 3),
-        (10, 1987, 7, 5),
-        (730, 1745, 35, 6),
-        (195, 1282, 3, 5),
+        (359, 1120, 4, 5),  # C9
+        (359, 1380, 4, 5),  # C7
+        (359, 1635, 4, 5),  # C1
+        (612, 1635, 4, 5),  # C2
     ]
 
     h = -1
     time = datetime.utcnow()
     if time.minute > 6:
         done[0] = True
-    if time.minute > 14:
+    if time.minute > 35:
         done[1] = True
-    if time.minute > 24:
+    if time.minute > 50:
         done[2] = True
 
     treasure_checker = datetime(2022, 1, 1)
