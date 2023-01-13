@@ -61,7 +61,7 @@ config.dictConfig(log_config)
 
 done = [False, False, False, False]  # danh dau da xong phan nao
 bot = telepot.Bot('5893551902:AAGF7r8xRJC442d2KhArNF6oMSy0ZeEJfJo')
-start_minute = 5
+start_minute = 4
 
 pause = False
 last_mine = None
@@ -72,7 +72,7 @@ share_status = False
 share_lv = 0  # lvl mỏ mà cao hơn lvl này thì sẽ không share cho liên minh
 
 client = AdbClient(host="127.0.0.1", port=5037)
-device = client.device("emulator-5554")
+device = client.device("emulator-5556")
 
 
 def locateAllOnScreen(image, screenshotIm, **kwargs):
@@ -135,7 +135,6 @@ def send_telebot(chatid, _str_coo, img):
         cv2.imwrite("imgs/tmp.png", img)
         bot.sendPhoto(chatid, photo=open("imgs/tmp.png", 'rb'))
 
-
     except  Exception as e:
         print(e)
 
@@ -187,7 +186,7 @@ def find_and_take(limit_x, limit_y):
         return False
 
     thread = Thread(target=send_telebot,
-                    args=(1706064050, "Tour 1 C36 screenshot", screenshot_image))
+                    args=(1706064050, "Tour 2 C36 screenshot", screenshot_image))
     thread.start()
 
 
@@ -354,37 +353,34 @@ if __name__ == '__main__':
             except:
                 logging.debug("Khong thay Kingdom")
 
-    l0_targets = [(1008, 1129, 2, 40)]  # dọc phía trên congress
+    l0_targets = [(974, 1025, 4, 9), (845, 1090, 4, 9),(1119, 1121, 3, 6),(1120, 1384, 3, 6),(870, 1373, 3, 6)]
     l1_targets = [(1128, 1359, 4, 10),  # B3
                   (871, 1373, 4, 10),  # B2
                   (1381, 1118, 3, 8),  # B6
                   (1395, 1624, 3, 8),  # C5
                   (979, 1246, 12, 16),  # Vùng rộng phía trên A2
                   (826, 1242, 10, 28),  # Vùng rộng phía trên A1
-                  (1038, 1121, 5, 4)  # vùng rìa A2
-                  ]
-
+                  (836, 1032, 1, 35),  # vùng dọc giữa B và A
+                  (466, 1041, 1, 50),  # vùng dọc giữa C và B
+                  (1250, 1025, 1, 20),  # vùng dọc bên cạnh shrine A2
+                  (220, 1031, 1, 40),  # vùng dọc bên ngoài trái C
+                  (713, 1817, 8, 0),  # vùng ngang trên cùng bản đồ
+                  (1634, 1118, 3, 6),  # C10
+                  (1639, 1378, 3, 6),  # C8
+                  (1386, 1380, 3, 6),  # B4
+                  (1335, 1240, 2, 2),  # vùng nhỏ bên cạnh B4 dưới
+                  (1614, 1382, 4, 4),  # vùng nhỏ bên cạnh B4 trên
+                  (1345, 1037, 9, 2),  # vùng ngang bản đồ bên phải
+                  (595, 1027, 6, 1),  # vùng ngang bản đồ bên trái
+                  (1827, 1032, 5, 16),  # vuùng góc phải bản đồ
+                  (359, 1120, 3, 5),  # C9
+                  (359, 1380, 3, 5),  # C7
+                  (359, 1635, 3, 5),  # C1
+                  (612, 1635, 3, 5),  # C2
+                ]
     l2_targets = [
-        (836, 1032, 1, 35),  # vùng dọc giữa B và A
-        (466, 1041, 1, 50),  # vùng dọc giữa C và B
-        (1250, 1025, 1, 20),  # vùng dọc bên cạnh shrine A2
-        (220, 1031, 1, 40),  # vùng dọc bên ngoài trái C
-        (713, 1817, 8, 0),  # vùng ngang trên cùng bản đồ
-        (1634, 1118, 3, 6),  # C10
-        (1639, 1378, 3, 6),  # C8
-        (1386, 1380, 3, 6),  # B4
-        (1335, 1240, 2, 2),  # vùng nhỏ bên cạnh B4 dưới
-        (1614, 1382, 4, 4),  # vùng nhỏ bên cạnh B4 trên
-        (1345, 1037, 9, 2),  # vùng ngang bản đồ bên phải
-        (595, 1027, 6, 1),  # vùng ngang bản đồ bên trái
-        (1827, 1032, 5, 16),  # vuùng góc phải bản đồ
     ]
-
     l3_targets = [
-        (359, 1120, 3, 5),  # C9
-        (359, 1380, 3, 5),  # C7
-        (359, 1635, 3, 5),  # C1
-        (612, 1635, 3, 5),  # C2
     ]
 
     h = -1
