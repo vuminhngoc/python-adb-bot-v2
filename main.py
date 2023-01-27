@@ -306,55 +306,8 @@ def find_and_take(limit_x, limit_y):
 
 
 def move_ziczac(x, y, w=4, h=10, find_lv=0):
-    device.input_keyevent(4)
-    # reset lastmine
-    global last_mine
-    last_mine = None
-    # Kiểm tra xem có bị click nhầm không
-    try:
-        imgx = device.screencap()
-        screenshot_image = cv2.imdecode(np.frombuffer(imgx, np.uint8), -1)
-
-        x, y = locateCenterOnScreen("imgs/back.png", screenshot_image, grayscale=True, confidence=0.85)
-        device.input_tap(x, y)
-        return False
-    except:
-        # ignored
-        pass
-
-    try:
-        imgx = device.screencap()
-        screenshot_image = cv2.imdecode(np.frombuffer(imgx, np.uint8), -1)
-
-        x, y = locateCenterOnScreen("imgs/field.png", screenshot_image, grayscale=True, confidence=0.85)
-        device.input_tap(x, y)
-
-        for index in range(10):
-            sleep(0.35)
-            try:
-                imgx = device.screencap()
-                screenshot_image = cv2.imdecode(np.frombuffer(imgx, np.uint8), -1)
-
-                x, y = locateCenterOnScreen("imgs/star_yellow.PNG", screenshot_image, grayscale=True, confidence=0.75)
-                break
-            except:
-                pass
-    except:
-        # ignored
-        pass
-
     go_x = -1
     go_y = -1
-
-    try:
-        imgx = device.screencap()
-        screenshot_image = cv2.imdecode(np.frombuffer(imgx, np.uint8), -1)
-
-        go_x, go_y = locateCenterOnScreen("imgs/go.PNG", screenshot_image, grayscale=True, confidence=0.85)
-        logging.debug(f"Go button: {go_x},{go_y}")
-    except:
-        logging.debug("Khong thay Go button")
-
     star_x = -1
     star_y = -1
     try:
@@ -365,6 +318,14 @@ def move_ziczac(x, y, w=4, h=10, find_lv=0):
         logging.debug(f"Yellow star: {star_x},{star_y}")
     except:
         logging.debug("Khong thay Yellow star")
+
+    try:
+        imgx = device.screencap()
+        screenshot_image = cv2.imdecode(np.frombuffer(imgx, np.uint8), -1)
+
+        go_x, go_y = locateCenterOnScreen("imgs/go.PNG", screenshot_image, grayscale=True, confidence=0.85)
+    except:
+        pass
 
     # Nếu không thấy nut go thì bấm vào tọa độ
     if go_x < 0:
