@@ -60,7 +60,7 @@ log_config = {
 config.dictConfig(log_config)
 
 done = [False, False, False, False]  # danh dau da xong phan nao
-bot = telepot.Bot('5893551902:AAGF7r8xRJC442d2KhArNF6oMSy0ZeEJfJo')
+bot = telepot.Bot('5725931529:AAH6DDwcN_FlKEzDaccE7cTFYGFYcV8DpNM')
 start_minute = 5
 
 pause = False
@@ -262,7 +262,7 @@ def find_and_take(limit_x, limit_y):
             if mine_level > share_lv:
                 last_mine_screenshot = screenshot_image[star_y - 55:star_y + 400, star_x - 60:star_x + 180]
                 thread = Thread(target=send_telebot,
-                                args=(1706064050, str_coo + ":lv= " + str_level, last_mine_screenshot))
+                                args=(-751408051, str_coo + ":lv= " + str_level, last_mine_screenshot))
                 thread.start()
         except Exception as e:
             print(e)
@@ -487,7 +487,7 @@ if __name__ == '__main__':
     # START TELEGRAM SERVICE
     """Run bot."""
     # Create the Updater and pass it your bot's token.
-    updater = Updater("5893551902:AAGF7r8xRJC442d2KhArNF6oMSy0ZeEJfJo")
+    updater = Updater("5725931529:AAH6DDwcN_FlKEzDaccE7cTFYGFYcV8DpNM")
 
     # Get the dispatcher to register handlers
     dispatcher = updater.dispatcher
