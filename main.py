@@ -135,8 +135,9 @@ def send_telebot(chatid, _str_coo, img):
         cv2.imwrite("imgs/tmp.png", img)
         bot.sendPhoto(chatid, photo=open("imgs/tmp.png", 'rb'))
 
-    except ex:
-        print(ex)
+
+    except  Exception as e:
+        print(e)
 
 
 def start(update: Update, context: CallbackContext) -> None:
@@ -175,7 +176,7 @@ def find_and_take(limit_x, limit_y):
         imgx = device.screencap()
         screenshot_image = cv2.imdecode(np.frombuffer(imgx, np.uint8), -1)
 
-        _x, _y = locateCenterOnScreen("imgs/crystal_mine.png", screenshot_image, grayscale=True, confidence=0.7)
+        _x, _y = locateCenterOnScreen("imgs/crystal_mine.png", screenshot_image, grayscale=True, confidence=0.75)
         logging.debug(f"Tim thay mo :{_x}, {_y}, limit : {limit_x},{limit_y}")
 
     except:
@@ -441,7 +442,7 @@ def move_ziczac(x, y, w=4, h=10, find_lv=0):
             find_and_take(limit_x, limit_y)
 
         # dịch sang bên phải 1 bước
-        device.input_swipe(950, 600, 200, 600, 250)
+        device.input_swipe(950, 200, 200, 200, 250)
         # device.input_swipe(924, 600, 944, 600, 60)
 
         find_and_take(limit_x, limit_y)
