@@ -413,8 +413,37 @@ def move_ziczac(x, y, w=4, h=10, find_lv=0):
 
 
 def refresh():
-    pass
+    try:
+        imgx = device.screencap()
+        screenshot_image = cv2.imdecode(np.frombuffer(imgx, np.uint8), -1)
 
+        kingdom_x, kingdom_y = locateCenterOnScreen("imgs/kingdom.PNG", screenshot_image, confidence=0.85)
+        device.input_tap(kingdom_x, kingdom_y)
+    except:
+        logging.debug("Khong thay Kingdom")
+
+    for i in range(20):
+        sleep(0.5)
+        try:
+            imgx = device.screencap()
+            screenshot_image = cv2.imdecode(np.frombuffer(imgx, np.uint8), -1)
+
+            kingdom_x, kingdom_y = locateCenterOnScreen("imgs/field.PNG", screenshot_image, confidence=0.85)
+            device.input_tap(kingdom_x, kingdom_y)
+            break
+        except:
+            logging.debug("Khong thay Kingdom")
+
+    for i in range(20):
+        sleep(0.5)
+        try:
+            imgx = device.screencap()
+            screenshot_image = cv2.imdecode(np.frombuffer(imgx, np.uint8), -1)
+
+            kingdom_x, kingdom_y = locateCenterOnScreen("imgs/kingdom.PNG", screenshot_image, confidence=0.85)
+            break
+        except:
+            logging.debug("Khong thay Kingdom")
 
 def restart_game():
     pass
