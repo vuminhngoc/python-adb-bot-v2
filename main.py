@@ -306,6 +306,8 @@ def find_and_take(limit_x, limit_y):
 
 
 def move_ziczac(x, y, w=4, h=10, find_lv=0):
+    close_all()
+
     go_x = -1
     go_y = -1
     star_x = -1
@@ -445,8 +447,33 @@ def refresh():
         except:
             logging.debug("Khong thay Kingdom")
 
+
 def restart_game():
     pass
+
+
+def close_all():
+    """
+    Đóng toàn bộ các mục đang được mở trên màn hình game
+    """
+    _x = _y = 1
+    count = 0
+
+    while _x > 0 and count < 10:
+        count += 1
+        _x = _y = -1
+        imgx = device.screencap()
+        screenshot_image = cv2.imdecode(np.frombuffer(imgx, np.uint8), -1)
+        try:
+            _x, _y = locateCenterOnScreen("imgs/back.png", screenshot_image, grayscale=True, confidence=0.85)
+        except:
+            pass
+        try:
+            _x, _y = locateCenterOnScreen("imgs/x.png", screenshot_image, grayscale=True, confidence=0.85)
+        except:
+            pass
+        if _x > 0:
+            device.input_tap(_x, _y)
 
 
 # Press the green button in the gutter to run the script.
