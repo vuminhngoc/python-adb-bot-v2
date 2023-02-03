@@ -68,7 +68,7 @@ last_mine = None
 force_done = False
 traveled_mines = []
 is_full_queue = False
-share_status = False
+share_status = True
 share_lv = 0  # lvl mỏ mà cao hơn lvl này thì sẽ không share cho liên minh
 
 client = AdbClient(host="127.0.0.1", port=5037)
@@ -298,7 +298,7 @@ def find_and_take(limit_x, limit_y):
         _x, _y = locateCenterOnScreen("imgs/back.png", screenshot_image, grayscale=True, confidence=0.85)
         device.input_tap(_x, _y)
         logging.debug('press Back')
-        sleep(0.2)
+        sleep(1.2)
     except:
         logging.debug("Không thể share")
 
@@ -484,19 +484,19 @@ if __name__ == '__main__':
     logging.debug("LOKA AI PLAYER STARTING...")
     traveled = ["0"]
 
-    # START TELEGRAM SERVICE
-    """Run bot."""
-    # Create the Updater and pass it your bot's token.
-    updater = Updater("5725931529:AAH6DDwcN_FlKEzDaccE7cTFYGFYcV8DpNM")
-
-    # Get the dispatcher to register handlers
-    dispatcher = updater.dispatcher
-    dispatcher.add_handler(CommandHandler("start", start))
-    dispatcher.add_handler(CommandHandler("full", full))
-    dispatcher.add_handler(CommandHandler("sc", swich))
-    dispatcher.add_handler(CommandHandler("lv", setlv))
-
-    updater.start_polling()
+    # # START TELEGRAM SERVICE
+    # """Run bot."""
+    # # Create the Updater and pass it your bot's token.
+    # updater = Updater("5725931529:AAH6DDwcN_FlKEzDaccE7cTFYGFYcV8DpNM")
+    #
+    # # Get the dispatcher to register handlers
+    # dispatcher = updater.dispatcher
+    # dispatcher.add_handler(CommandHandler("start", start))
+    # dispatcher.add_handler(CommandHandler("full", full))
+    # dispatcher.add_handler(CommandHandler("sc", swich))
+    # dispatcher.add_handler(CommandHandler("lv", setlv))
+    #
+    # updater.start_polling()
 
     # tìm tọa độ nút field
     field_x = -1
