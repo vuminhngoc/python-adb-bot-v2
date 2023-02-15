@@ -249,6 +249,7 @@ def find_and_take(limit_x, limit_y):
                 _x, _y = locateCenterOnScreen("imgs/back.png", tmp_screenshot, grayscale=True, confidence=0.85)
                 device.input_tap(_x, _y)
                 logging.debug('press Back')
+                sleep(2)
                 return
             traveled_mines.append(str_coo)
 
@@ -298,7 +299,7 @@ def find_and_take(limit_x, limit_y):
         _x, _y = locateCenterOnScreen("imgs/back.png", screenshot_image, grayscale=True, confidence=0.85)
         device.input_tap(_x, _y)
         logging.debug('press Back')
-        sleep(1.2)
+        sleep(2)
     except:
         logging.debug("Không thể share")
 
